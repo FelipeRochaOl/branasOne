@@ -1,0 +1,6 @@
+/*.js
+node_modules
+dist
+server
+jest.config.ts
+tsconfig.json
