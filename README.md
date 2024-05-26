@@ -1,6 +1,6 @@
 
 <!-- README.md -->
-  [![cov](https://FelipeRochaOl.github.io/branasOne/badges/coverage.svg)](https://github.com/FelipeRochaOl/branasOne/actions)
+  [![cov](https://feliperochaol.github.io/branasOne/badges/coverage.svg)](https://github.com/FelipeRochaOl/branasOne/actions)
 
 # Branas lesson One
 
