@@ -1,11 +1,15 @@
 name: TestAndCoverage
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [$default-branch]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [$default-branch]
   workflow_dispatch:
-    branches: [ $default-branch ]
+    inputs:
+      default-branch:
+        description: 'Default branch'
+        required: true
+        default: 'master'
 jobs:
   coverage:
     runs-on: ubuntu-latest
