@@ -1,7 +1,13 @@
-name: TestCoverage
-on: [push, pull_request, workflow_dispatch]
+name: TestAndCoverage
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+  workflow_dispatch:
+    branches: [ $default-branch ]
 jobs:
-  test:
+  coverage:
     runs-on: ubuntu-latest
     steps:
       # Your original steps
