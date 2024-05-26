@@ -10,7 +10,8 @@ const jestConfig: JestConfigWithTsJest = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/'
   }),
-  coverageReporters: ['json-summary']
+  coverageReporters: ['json-summary'],
+  coverageProvider: 'v8'
 }
 
 export default jestConfig

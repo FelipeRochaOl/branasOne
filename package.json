@@ -6,9 +6,9 @@
   "author": "Felipe Rocha",
   "license": "MIT",
   "scripts": {
-    "test": "jest --colors --coverage --verbose --runInBand --injectGlobals false /test",
+    "test": "npx jest --colors --coverage --verbose --silent --runInBand --injectGlobals false /test",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --colors --coverage --verbose --runInBand --watchAll --injectGlobals false /test",
-    "coverage": "npx jest --coverage",
+    "coverage": "npx jest --colors --coverage --verbose --silent --runInBand --injectGlobals false /test",
     "dev": "ts-node-dev -r tsconfig-paths/register src/main.ts"
   },
   "dependencies": {
