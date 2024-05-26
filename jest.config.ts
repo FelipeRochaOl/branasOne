@@ -3,6 +3,7 @@ import { compilerOptions } from './tsconfig.json'
 
 const jestConfig: JestConfigWithTsJest = {
   verbose: true,
+  reporters: ['json-summary'],
   preset: 'ts-jest',
   testEnvironment: 'node',
   roots: ['<rootDir>'],
