@@ -10,10 +10,24 @@ describe('Teste CPF', () => {
     const cpfValidator3 = new Cpf('52149650010').validate()
     expect(cpfValidator3).toBeTruthy()
   })
-  it('Deve criar um CPF com valor inválido', () => {
+  it('Não deve criar um CPF com valor inválido', () => {
     const consoleSpy = jest.spyOn(console, 'error')
     const cpfValidator = new Cpf('533788470').validate()
     expect(consoleSpy).toHaveBeenCalledWith('Erro: CPF deve conter 11 dígitos')
+    expect(cpfValidator).toBeFalsy()
+  })
+  it.each([
+    '111.111.111-11',
+    '222.222.222-22',
+    '333.333.333-33',
+    '444.444.444-44',
+    '555.555.555-55',
+    '666.666.666-66',
+    '777.777.777-77',
+    '888.888.888-88',
+    '999.999.999-99'
+  ])('Não deve criar um CPF com valores repetidos %s', (cpf) => {
+    const cpfValidator = new Cpf(cpf).validate()
     expect(cpfValidator).toBeFalsy()
   })
 })

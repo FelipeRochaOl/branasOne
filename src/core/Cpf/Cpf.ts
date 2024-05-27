@@ -21,6 +21,9 @@ export class Cpf {
       if (this.cpf.length !== 11) {
         throw new Error('CPF deve conter 11 dígitos')
       }
+      if (this.isRepeatDigits()) {
+        return false
+      }
       this.calculateDigits()
       const lastTwoDigitsCPF = this.cpf.substring(
         this.cpf.length - 2,
@@ -33,6 +36,10 @@ export class Cpf {
       console.error(`Erro: ${error.message}`)
       return false
     }
+  }
+
+  private isRepeatDigits(): boolean {
+    return this.cpf.split('').every((digit) => digit === this.cpf[0])
   }
 
   private calculateDigits(): void {
