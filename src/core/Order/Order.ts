@@ -12,7 +12,7 @@ export class Order {
 
   constructor({ id, cpf }: IOrderParams) {
     this.setId(id)
-    this.setValidCpf(cpf)
+    this.setCpf(cpf)
     this.total = 0
     this.products = new Set()
   }
@@ -33,7 +33,7 @@ export class Order {
     this.id = id
   }
 
-  public setValidCpf(cpf: Cpf): void {
+  private setCpf(cpf: Cpf): void {
     if (!cpf.validate()) {
       throw new Error('CPF inválido')
     }

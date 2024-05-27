@@ -22,7 +22,7 @@ const product3 = new Product({
   id: '3'
 })
 
-const order = new Order({ id: 1, cpf: new Cpf('07956426600') })
+const order = new Order({ id: 1, cpf: new Cpf('52149650010') })
 const cupom = new Cupom({
   code: 'VALE20',
   percentDiscount: 20,

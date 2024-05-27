@@ -5,14 +5,13 @@ export class Cpf {
   private calculateDigitTwo = 0
   private firstDigit = 0
   private secondDigit = 0
+  private cpf: string
 
-  constructor(private cpf: string) {}
+  constructor(cpf: string) {
+    this.cpf = cpf
+  }
 
   public getCpf(): string {
-    if (!this.validate()) {
-      console.error('Erro: CPF inválido')
-      throw new Error('CPF inválido')
-    }
     return this.cpf
   }
 
@@ -42,15 +41,6 @@ export class Cpf {
     this.calculateDigitByValidator(this.validatorSecondDigit)
   }
 
-  private calculateDigitByValidator(validator: number): void {
-    const calc = this.calculateDigitOne % validator
-    if (validator === this.validatorFirstDigit) {
-      this.firstDigit = calc < 2 ? 0 : validator - calc
-      return
-    }
-    this.secondDigit = calc < 2 ? 0 : validator - calc
-  }
-
   private calculateSumDigits(): void {
     let positionCaracterCPF = 1
     const lengthCpf = this.cpf.length - 1
@@ -70,6 +60,10 @@ export class Cpf {
     }
   }
 
+  private getDigit(numCaracter: number): number {
+    return parseInt(this.cpf.substring(numCaracter - 1, numCaracter))
+  }
+
   private calculateSumDigitByPosition(
     validator: number,
     position: number,
@@ -82,7 +76,14 @@ export class Cpf {
     this.calculateDigitOne += (validator - position) * digit
   }
 
-  private getDigit(numCaracter: number): number {
-    return parseInt(this.cpf.substring(numCaracter - 1, numCaracter))
+  private calculateDigitByValidator(validator: number): void {
+    if (validator === this.validatorFirstDigit) {
+      const calc = this.calculateDigitOne % validator
+      this.firstDigit = calc < 2 ? 0 : validator - calc
+      this.calculateDigitTwo += this.firstDigit * 2
+      return
+    }
+    const calc = this.calculateDigitTwo % this.validatorFirstDigit
+    this.secondDigit = calc < 2 ? 0 : this.validatorFirstDigit - calc
   }
 }

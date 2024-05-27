@@ -4,9 +4,9 @@ import { Order } from '@core/Order/Order'
 import { Product } from '@core/Product/Product'
 import { describe, expect, it } from '@jest/globals'
 
-describe('Teste API', () => {
+describe('Teste MAIN', () => {
   it('Deve criar um pedido com 3 produtos (com descrição, preço e quantidade) e calcular o valor total', () => {
-    const order = new Order({ id: 1, cpf: new Cpf('079.564.266-00') })
+    const order = new Order({ id: 1, cpf: new Cpf('79520556079') })
     const product1 = new Product({
       description: 'Product 1',
       price: 100,
@@ -39,7 +39,7 @@ describe('Teste API', () => {
   })
   it(`Deve criar um pedido com 3 produtos, associar um cupom de desconto e calcular o total (percentual sobre 
     o total do pedido)`, () => {
-    const order = new Order({ id: 1, cpf: new Cpf('07956426600') })
+    const order = new Order({ id: 1, cpf: new Cpf('79520556079') })
     const product1 = new Product({
       description: 'Product 1',
       price: 100,
